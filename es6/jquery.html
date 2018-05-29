@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    
+</body>
+    <script src="jquery.min.js"></script>
+    <script>
+        $.extend({
+            sayHello: function(name) {
+                console.log('Hello,' + (name ? name : 'Dude') + '!');
+            },
+            sayTy:function (x,y) {
+                return x+y;
+            }
+        })
+        $.sayHello("reb");
+        var b = $.sayTy(1,2);
+        alert(b);
+        $.fn.Valdd = function () {
+
+        }
+
+        var defaults = {
+            'color': 'red',
+            'fontSize': '12px'
+        };
+        var buy = [1,2]
+        var options = {
+            'color':'bile'
+        }
+        var settings = $.extend(buy);
+        console.log(settings[1]);
+    </script>
+</html>

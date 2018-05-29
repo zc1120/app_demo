@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    function Init() {
+        try {
+            var flyPath = "http://www.skylineglobe.com/SkylineGlobe/WebClient/PresentationLayer/WebClient/SkyglobeLB.fly";
+            // attach callback to the load finished event
+            SGWorld66.AttachEvent("OnLoadFinished", OnProjectLoadFinished);
+            // Load default developer fly file from www.skylineglobe.com web site.
+            // default load is in async mode
+            SGWorld66.Project.Open(flyPath);
+        }
+        catch (e) {
+            alert("Error: " + e.description);
+        }
+
+    }
+
+    function OnProjectLoadFinished() {
+        alert("Received project loaded event. Click OK to fly to Washington DC.");
+        var Washington = SGWorld66.Creator.CreatePosition(-77.036667, 38.895111, 1500);
+        SGWorld66.Navigate.FlyTo(Washington);
+    }
+</script>
+</head>
+<body onload="Init()">
+<object id="TE" classid="clsid:3a4f9192-65a8-11d5-85c1-0001023952c1" style="width: 600px;height: 600px"></object>
+<object id="SGWorld66" classid="CLSID:3a4f9199-65a8-11d5-85c1-0001023952c1" style="visibility: hidden;height: 0"></object>
+</body>
+</html>
